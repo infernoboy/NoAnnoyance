@@ -17,12 +17,6 @@ Supported alerts:
 + Trust this computer
 + Shake to undo
 
-VPN
----
-+ You were disconnected by the communication device.
-+ You were disconnected by the PPP server.
-+ The server is unreachable.
-
 + The mail server "x" is not responding
 
 + Silence siri alert tones
@@ -30,6 +24,11 @@ VPN
 + Disable updated app dot
 
 + Disable game center welcome banner
+
+### VPN
++ You were disconnected by the communication device.
++ You were disconnected by the PPP server.
++ The server is unreachable.
 
 ---
 
