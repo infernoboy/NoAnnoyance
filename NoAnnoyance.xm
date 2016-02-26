@@ -45,6 +45,9 @@
 
         _settings.SpringBoard.ImproveLocationAccuracy = YES;
         _settings.SpringBoard.CellularDataIsTurnedOffFor = YES;
+        _settings.SpringBoard.VPNDisconnectedByDevice = NO;
+        _settings.SpringBoard.VPNDisconnectedByPPPServer = NO;
+        _settings.SpringBoard.VPNServerUnreachable = NO;
         _settings.SpringBoard.EdgeAlert = YES;
         _settings.SpringBoard.AirplaneCellPrompt = YES;
         _settings.SpringBoard.AirplaneDataPrompt = YES;
@@ -150,6 +153,15 @@
 
     if ([_settingsPlist objectForKey:@"EDGE_ALERT"])
         _settings.SpringBoard.EdgeAlert = [[_settingsPlist objectForKey:@"EDGE_ALERT"] boolValue];
+
+    if ([_settingsPlist objectForKey:@"VPN_DISCONNECTED_BY_DEVICE"])
+        _settings.SpringBoard.VPNDisconnectedByDevice = [[_settingsPlist objectForKey:@"VPN_DISCONNECTED_BY_DEVICE"] boolValue];
+
+    if ([_settingsPlist objectForKey:@"VPN_DISCONNECTED_BY_PPP_SERVER"])
+        _settings.SpringBoard.VPNDisconnectedByPPPServer = [[_settingsPlist objectForKey:@"VPN_DISCONNECTED_BY_PPP_SERVER"] boolValue];
+
+    if ([_settingsPlist objectForKey:@"VPN_SERVER_UNREACHABLE"])
+        _settings.SpringBoard.VPNServerUnreachable = [[_settingsPlist objectForKey:@"VPN_SERVER_UNREACHABLE"] boolValue];
 
     if ([_settingsPlist objectForKey:@"AIRPLANE_CELL_PROMPT"])
         _settings.SpringBoard.AirplaneCellPrompt = [[_settingsPlist objectForKey:@"AIRPLANE_CELL_PROMPT"] boolValue];

@@ -10,6 +10,9 @@ struct NoAnnoyanceSettings {
     struct {
         BOOL ImproveLocationAccuracy;
         BOOL CellularDataIsTurnedOffFor;
+        BOOL VPNDisconnectedByPPPServer;
+        BOOL VPNDisconnectedByDevice;
+        BOOL VPNServerUnreachable;
         BOOL EdgeAlert;
         BOOL AirplaneCellPrompt;
         BOOL AirplaneDataPrompt;

@@ -72,6 +72,56 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
+			<string>VPN</string>
+			<key>isStaticText</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>default</key>
+			<false/>
+			<key>key</key>
+			<string>VPN_DISCONNECTED_BY_DEVICE</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>PostNotification</key>
+			<string>com.pNre.noannoyance/settingsupdated</string>
+			<key>label</key>
+			<string>Disconnected by communication device</string>
+			<key>defaults</key>
+			<string>com.pNre.noannoyance</string>
+		</dict>
+		<dict>
+			<key>default</key>
+			<false/>
+			<key>key</key>
+			<string>VPN_DISCONNECTED_BY_PPP_SERVER</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>PostNotification</key>
+			<string>com.pNre.noannoyance/settingsupdated</string>
+			<key>label</key>
+			<string>Disconnected by PPP server</string>
+			<key>defaults</key>
+			<string>com.pNre.noannoyance</string>
+		</dict>
+		<dict>
+			<key>default</key>
+			<false/>
+			<key>key</key>
+			<string>VPN_SERVER_UNREACHABLE</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>PostNotification</key>
+			<string>com.pNre.noannoyance/settingsupdated</string>
+			<key>label</key>
+			<string>Server unreachable</string>
+			<key>defaults</key>
+			<string>com.pNre.noannoyance</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
 			<string>Location</string>
 		</dict>
 		<dict>

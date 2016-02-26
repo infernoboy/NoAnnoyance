@@ -115,6 +115,9 @@ static inline void SBAlertItemDiscard(SBAlertItemsController * controller, SBAle
         PNLog(@"%@", [NoAnnoyance sharedInstance].strings);
 
         if (
+            ([[(SBUserNotificationAlert *)alert alertMessage] isEqualToString:[NoAnnoyance sharedInstance].strings[@"SpringBoard.VPNDisconnectedByDevice"]] && [NoAnnoyance sharedInstance].settings.SpringBoard.VPNDisconnectedByDevice) ||
+            ([[(SBUserNotificationAlert *)alert alertMessage] isEqualToString:[NoAnnoyance sharedInstance].strings[@"SpringBoard.VPNDisconnectedByPPPServer"]] && [NoAnnoyance sharedInstance].settings.SpringBoard.VPNDisconnectedByPPPServer) ||
+            ([[(SBUserNotificationAlert *)alert alertMessage] isEqualToString:[NoAnnoyance sharedInstance].strings[@"SpringBoard.VPNServerUnreachable"]] && [NoAnnoyance sharedInstance].settings.SpringBoard.VPNServerUnreachable) ||
             ([[(SBUserNotificationAlert *)alert alertMessage] isEqualToString:[NoAnnoyance sharedInstance].strings[@"SpringBoard.ImproveLocationAccuracy"]] && [NoAnnoyance sharedInstance].settings.SpringBoard.ImproveLocationAccuracy) ||
             ([[(SBUserNotificationAlert *)alert alertMessage] isEqualToString:[NoAnnoyance sharedInstance].strings[@"SpringBoard.CellularDataIsTurnedOffFor"]] && [NoAnnoyance sharedInstance].settings.SpringBoard.CellularDataIsTurnedOffFor) ||
             ([[(SBUserNotificationAlert *)alert alertHeader] isEqualToString:[NoAnnoyance sharedInstance].strings[@"Security.TrustThisComputer"]] && [NoAnnoyance sharedInstance].settings.Security.TrustThisComputer) ||
@@ -141,6 +144,15 @@ static void initializeSpringBoardStrings() {
 
     if (coreLocationBundle) {
         [NoAnnoyance sharedInstance].strings[@"SpringBoard.ImproveLocationAccuracy"] = [coreLocationBundle localizedStringForKey:@"IMPROVE_LOCATION_ACCURACY_WIFI" value:@"" table:@"locationd"];
+    }
+
+    //  load VPN strings from its bundle
+    NSBundle * PPPControllerBundle = [[NSBundle alloc] initWithPath:@"/System/Library/SystemConfiguration/PPPController.bundle"];
+
+    if (PPPControllerBundle) {
+        [NoAnnoyance sharedInstance].strings[@"SpringBoard.VPNDisconnectedByDevice"] = [PPPControllerBundle localizedStringForKey:@"PPP Error 16" value:@"" table:@"Localizable"];
+        [NoAnnoyance sharedInstance].strings[@"SpringBoard.VPNDisconnectedByPPPServer"] = [PPPControllerBundle localizedStringForKey:@"PPP Error 0" value:@"" table:@"Localizable"];
+        [NoAnnoyance sharedInstance].strings[@"SpringBoard.VPNServerUnreachable"] = [PPPControllerBundle localizedStringForKey:@"PPP Error 25" value:@"" table:@"Localizable"];
     }
 
     //  load YOU_CAN_TURN_ON_CELLULAR_DATA_FOR_THIS_APP_IN_settings string from its bundle
